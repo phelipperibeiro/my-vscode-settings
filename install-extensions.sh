@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
+# Instala as extensões listadas em vscode-settings/extensions.txt (ou no arquivo passado como argumento)
+# Uso: ./install-extensions.sh [arquivo]
 
-cat extensions.txt | while read extension || [[ -n $extension ]];
+list="${1:-$(dirname "$0")/vscode-settings/extensions.txt}"
+
+if [[ ! -f "$list" ]]; then
+  echo "Arquivo $list não encontrado" >&2
+  exit 1
+fi
+
+tr -d '\r' < "$list" | while read -r extension || [[ -n $extension ]];
 do
-  code --install-extension $extension --force
+  [[ -z "$extension" ]] && continue
+  code --install-extension "$extension" --force
 done

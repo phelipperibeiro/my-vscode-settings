@@ -96,19 +96,23 @@ O fish permite configurar temas. Eu uso o [starship](https://starship.rs/) e no 
 
 ### 📦 Extensões Recomendadas
 
+**🪟 Usando Windows com WSL?** No Windows, instale apenas a extensão [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). Depois conecte o VSCode ao WSL (veja a seção [WSL](#-wsl---windows-subsystem-for-linux) abaixo) e execute os comandos a seguir **dentro do terminal do WSL**. Assim, todo o restante é instalado e roda no ambiente Linux.
+
 Minhas extensões podem ser facilmente instaladas no seu VSCode executando os seguintes comandos:
 
 **Para VSCode Insiders (Recomendado):**
 ```bash
 wget https://raw.githubusercontent.com/argentinaluiz/my-vscode-settings/main/vscode-settings/extensions.txt
-wget -O - https://raw.githubusercontent.com/argentinaluiz/my-vscode-settings/main/install-extensions-insiders.sh | bash
+wget -O - https://raw.githubusercontent.com/argentinaluiz/my-vscode-settings/main/install-extensions-insiders.sh | bash -s -- extensions.txt
 ```
 
 **Para VSCode Estável:**
 ```bash
 wget https://raw.githubusercontent.com/argentinaluiz/my-vscode-settings/main/vscode-settings/extensions.txt
-wget -O - https://raw.githubusercontent.com/argentinaluiz/my-vscode-settings/main/install-extensions.sh | bash
+wget -O - https://raw.githubusercontent.com/argentinaluiz/my-vscode-settings/main/install-extensions.sh | bash -s -- extensions.txt
 ```
+
+Ou, com o repositório clonado, basta rodar `./install-extensions.sh` (por padrão usa `vscode-settings/extensions.txt`; também aceita outro arquivo como argumento).
 
 **💡 Dica:** Você pode clonar o arquivo `extensions.txt` e editar para remover extensões que não deseja instalar antes de executar o script. Isso permite personalizar a instalação de acordo com suas necessidades específicas.
 
